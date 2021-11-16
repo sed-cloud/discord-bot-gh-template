@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
   run-cookiecutter:
-    if: ${{ github.repository != 'sed-cloud/discord-bot-gh-template' }}
+    if: ${{ github.repository != 'sed-cloud/python-base-gh-template' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -54,7 +54,7 @@ jobs:
           export REPO_NAME=$(echo $INFO | jq -r '.repository.name')
           
           # Run cookiecutter
-          cookiecutter gh:sed-cloud/db-accessor-template --no-input \
+          cookiecutter gh:sed-cloud/python-base-template --no-input \
             package_name=$REPO_NAME 
           
           # Move generated content to root directory of repo
